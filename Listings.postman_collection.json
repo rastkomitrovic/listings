@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "8726bb73-7e4e-40c6-a736-4e444cd5ed3c",
+		"name": "Listings",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "21372442"
+	},
+	"item": [
+		{
+			"name": "Get all paging",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/api/v0/listings?page=0&size=10&sort=DATE_CREATED&sortDirection=ASC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v0",
+						"listings"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "sort",
+							"value": "DATE_CREATED"
+						},
+						{
+							"key": "sortDirection",
+							"value": "ASC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search all paging",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"searchListingItems\": [\r\n        {\r\n            \"field\": \"MAKE\",\r\n            \"value\": \"Honda\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/v0/listings/search?page=0&size=10&sort=DATE_CREATED&sortDirection=ASC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v0",
+						"listings",
+						"search"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "sort",
+							"value": "DATE_CREATED"
+						},
+						{
+							"key": "sortDirection",
+							"value": "ASC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Produce Listing event",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"jeR4eY0BgiHrX4vXYZ8s\",\r\n    \"make\": \"Honda\",\r\n    \"model\": \"CR-V\",\r\n    \"productionYear\": 2023,\r\n    \"mileage\": 1,\r\n    \"transmissionType\": \"MANUAL\",\r\n    \"fuelType\": \"DIESEL\",\r\n    \"contactInfo\": {\r\n        \"firstName\": \"Rastko\",\r\n        \"lastName\": \"Mitrovic\",\r\n        \"email\": \"rastkomitrovic@gmail.com\",\r\n        \"phoneNumber\": \"+11201120113\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/api/v0/listings?mode=UPDATE",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"api",
+						"v0",
+						"listings"
+					],
+					"query": [
+						{
+							"key": "mode",
+							"value": "UPDATE"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate Random Listings",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:9090/api/v0/listings/random"
+			},
+			"response": []
+		}
+	]
+}
